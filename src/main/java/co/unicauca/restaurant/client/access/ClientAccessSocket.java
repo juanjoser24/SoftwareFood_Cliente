@@ -10,5 +10,5 @@ package co.unicauca.restaurant.client.access;
  * @author braia
  */
 public class ClientAccessSocket {
-    
+    //
 }
