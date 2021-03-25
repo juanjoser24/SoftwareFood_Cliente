@@ -13,18 +13,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Permite la comunicación con el cliente
  *
  * @author braia
  */
 public class RestaurantSocket {
-    
+
     /**
-     * Socket de la aplicación cliente
+     * Socket de la aplicación cliente, el metodo de comunicacion
      */
     private java.net.Socket socket = null;
     /**
-     * Permite leer la recibir la respuesta del socket
+     * Permite leer, recibir la respuesta del socket
      */
     private Scanner input;
     /**
@@ -32,7 +31,7 @@ public class RestaurantSocket {
      */
     private PrintStream output;
     /**
-     * Ip del Server Socket
+     * Ip del Server Socket, es obtenida del archivo propertis
      */
     private final String IP_SERVER = Utilities.loadProperty("server.ip");
     /**
@@ -54,7 +53,7 @@ public class RestaurantSocket {
         output = new PrintStream(socket.getOutputStream());
         output.flush();
 
-        // Enviar la solicitud
+        // Envia la solicitud
         output.println(requestJson);
 
         // Procesa la respuesta
@@ -65,7 +64,7 @@ public class RestaurantSocket {
     }
 
     /**
-     * Cierra los flujos input y output
+     * Cierra input y output
      */
     public void closeStream() {
         output.close();
@@ -92,4 +91,5 @@ public class RestaurantSocket {
         socket = new java.net.Socket(IP_SERVER, PORT);
         Logger.getLogger("SocketClient").log(Level.INFO, "Socket establecido");
     }
+
 }
